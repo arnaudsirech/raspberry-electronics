@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        
+        .slider:hover {
+            opacity: 1;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+        
+        #redSlider::-webkit-slider-thumb {
+            background: red;
+        }
+        
+        #redSlider::-moz-range-thumb {
+            background: red;
+        }
+        
+        #greenSlider::-webkit-slider-thumb {
+            background: green;
+        }
+        
+        #greenSlider::-moz-range-thumb {
+            background: green;
+        }
+        
+        #blueSlider::-webkit-slider-thumb {
+            background: blue;
+        }
+        
+        #blueSlider::-moz-range-thumb {
+            background: blue;
+        }
+        
+        .h100 {
+            height: 5rem
+        }
+        
+        .rembold {
+            font-size: 2rem
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <h1 class="text-center m-5">Le jouet papillon</h1>
+            <div class="row text-center">
+        
+                <button id='motorOn' type="button" class="rembold font-weight-bold h100 mt-2 mb-2 ml-2 mr-2  h-5 btn btn-primary w-100">Allumer le papillon</button>
+                <button id='motorOff' type="button" class="rembold font-weight-bold h100  ml-2 mr-2 btn btn-danger w-100">Eteindre le papillon</button>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://www.w3schools.com/lib/w3color.js"></script>
+        <script>
+            var socket = io(); //load socket.io-client and connect to the host that serves the page
+
+
+            document.getElementById('motorOn').addEventListener("click", () => socket.emit('motorOn'));
+            document.getElementById('motorOff').addEventListener("click", () => socket.emit('motorOff'));
+        </script>
+
+</html>
+</body>
+
+</html>
